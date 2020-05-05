@@ -1,0 +1,33 @@
+{
+  "name": "framework",
+  "version": "1.0.0",
+  "description": "Expressjs, Framework express para pricipiantes.",
+  "main": "index.js",
+  "dependencies": {
+    "express": "^4.17.1",
+    "nodemon": "^2.0.3"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/karlosjota/nato-express.git"
+  },
+  "author": "@karlosjota",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/karlosjota/nato-express/issues"
+  },
+  "homepage": "https://github.com/karlosjota/nato-express#readme",
+  "keywords": [
+    "node",
+    "nodejs",
+    "express",
+    "js",
+    "docker",
+    "framework",
+    "git"
+  ]
+}
