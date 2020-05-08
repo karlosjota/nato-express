@@ -1,0 +1,67 @@
+## get sirve para devolver cosa
+
+app.get('/test', (req, res) => {
+    res.send('POST REQUEST RECIVED');
+});
+
+## post sirve para recibir determiados datos y procesarlos o enviarlos a una base de datos 
+
+
+
+## put envia datos para poder actulizarlos en la misma web o una base datos por ejemplo 
+ tomar los datos que me va a envir el front-end después de hacer yo una petición para actualizarlos
+
+app.put('/test', (req, res) => {
+    res.send('UPDATE REQUEST RECIVED');
+});
+
+
+
+
+
+
+## app.delete:  boro algo dentro del servidor, y luego le envío una repueta al navegador
+
+app.delete('/test', (req, res) => {
+res.send('<h1>respuesta que le envio</h1>'); 
+})
+
+## Descargar postman para testear peticiones -funciona via web o escritorio-. (Mac y Linux) Extensión de Chrome
+
+## Enviar user a traves de peetición POST
+ - en postman creamos una propiedad de tipo clave valor dentro de la pestaña Header y en body
+ creamos un JSON con dos parámetros del usuario.
+        . username
+        . lastname
+    . en body activamos raw y editamos el JSON
+
+-  con (req.body) veremos en eerminal del servidor los dato del JSON    
+
+- Esto devolvería un "Undefiined". Para ver el JSON editamos una linea de codigo con el método json de express
+    app.user(express.json());
+
+## req.body
+Cuando un user envia un dato puede verse a través de un objeto que provee json, que a su vez es un objeto de express.:
+express.json
+
+- req.body (cuerpo de la petición)
+- req.params (parmétro de la petición)
+## rutas dinámicas
+('/user/:name_var') en vez de '/user/name_user1', '/user/name_user2', '/user/name_user3', etc ..
+y para verlo, en vez de hacerlo con req.body que devuelve un objeto JSON, lo hacemos con:
+        req.params
+
+ - hacemos una petición post con un usurio llamado 346
+ http://localhost:3000/user/346
+
+ - lo borramos con una petición delete que prepararemos en index.js:
+ app.delete('/user/:id/', (req, res) => {...})
+ con la devolución en conola nos valemos de las expresioes js para el mensaje:
+     res.send(`User ${req.params.userId} Ha sido eliminado.`);
+     concatenando con los Strings "User" y "Ha sido eliminado" con el śimbolo: `
+
+Petición:
+  DELETE  http://localhost:3000/user/342
+    . En consola deberá mostrar:
+    Usuario 342 Ha sido eliminado
+

@@ -2,17 +2,33 @@
 const express = require('express');
 const app = express();
 
-// con el méetodo send encapsulmos todo l fución createServer   
+
+app.use(express.json());
+
 app.get('/', (req, res) => {
-    res.send('Has solicitado el path / ');
+    res.send('Ruta principal');
 });
 
-app.get('/about', (req, res) => {
-    res.send('About me');
+// con el méetodo send encapsulmos todo l fución createServer   
+app.get('/user', (req, res) => {
+    res.json({
+        username: 'Cameron',
+        lastname: 'Hendrix',
+        id: '1238alpedo2'
+    });
 });
 
-app.get('/contact', (req, res) => {
-    res.send('Form contact');
+
+
+app.post('/user/:id', (req, res) => {
+    console.log(req.body);
+    console.log(req.params);
+    res.send('POST REQUEST RECEIVED');
+    
+});
+
+app.delete('/user/:userId', (req, res) => {
+    res.send(`User ${req.params.userId} Ha sido eliminado.`);
 });
 
 
